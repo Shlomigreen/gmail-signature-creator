@@ -1,13 +1,24 @@
 {
-  "name": "nextjs-app",
-  "version": "0.1.0",
-  "private": true,
+  "name": "gmail-signature-creator",
+  "version": "1.0.0",
+  "description": "A modern, professional email signature designer for Gmail built with Next.js, TypeScript, and Tailwind CSS",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
+  "keywords": [
+    "gmail",
+    "signature",
+    "email",
+    "nextjs",
+    "typescript",
+    "tailwind",
+    "react"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
   "dependencies": {
     "@hookform/resolvers": "^5.1.1",
     "@prisma/client": "^6.12.0",

@@ -407,9 +407,11 @@ export function SignatureEditor() {
               <CardTitle>Preview</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="bg-white border-2 border-dashed border-gray-200 rounded-lg p-6 min-h-[400px]">
-                <div id="signature-preview">
-                  {renderSignature()}
+              <div className="bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-200 rounded-lg p-4 shadow-sm">
+                <div className="bg-white rounded-md p-4 shadow-sm border border-gray-100">
+                  <div id="signature-preview">
+                    {renderSignature()}
+                  </div>
                 </div>
               </div>
               

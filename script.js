@@ -365,15 +365,15 @@ document.addEventListener('DOMContentLoaded', function() {
     copyButton.addEventListener('click', copyToClipboard);
     copyHTMLButton.addEventListener('click', copyHTMLSource);
 
-    // Initialize with sample data matching screenshot
-    form.fullName.value = 'Shlomi Green';
-    form.jobTitle.value = 'Head of AI';
+    // Initialize with sample data
+    form.fullName.value = 'John Smith';
+    form.jobTitle.value = 'Software Engineer';
     form.company.value = 'Engini';
-    form.email.value = 'shlomi.g@engini.io';
-    form.phone.value = '+972-506-0030';
+    form.email.value = 'john.smith@engini.io';
+    form.phone.value = '+1-555-123-4567';
     form.websiteUrl.value = 'https://www.engini.io';
     form.websiteLabel.value = 'www.engini.io';
-    form.linkedin.value = 'shlomigreen';
+    form.linkedin.value = 'johnsmith';
     
     // Initial preview update
     updatePreview();

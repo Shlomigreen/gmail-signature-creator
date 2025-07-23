@@ -119,7 +119,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     ${data.phone ? `<div class="contact-item"><strong>Mobile:</strong> ${data.phone}</div>` : ''}
                     ${data.email ? `<div class="contact-item"><strong>Email:</strong> <a href="mailto:${data.email}" style="color: #000; text-decoration: none;">${data.email}</a></div>` : ''}
                 </div>
-                ${data.company ? `<div class="company-logo">${generateLogo(data, data.company)}</div>` : ''}
+                ${data.company ? `<div class="company-logo">${generateLogo(data, data.company).replace('<img', '<img style="height: auto; width: 150px;"')}</div>` : ''}
                 ${(data.websiteUrl && data.websiteDisplay === 'bottom') ? `<div class="website"><a href="${data.websiteUrl}" style="color: #000; text-decoration: none; font-weight: bold;">${data.websiteLabel || data.websiteUrl}</a></div>` : ''}
             </div>
         `

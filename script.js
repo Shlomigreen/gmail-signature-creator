@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
         phone: document.getElementById('phone'),
         websiteUrl: document.getElementById('websiteUrl'),
         websiteLabel: document.getElementById('websiteLabel'),
+        websiteDisplay: document.getElementById('websiteDisplay'),
         logoHyperlink: document.getElementById('logoHyperlink'),
         logoUrl: document.getElementById('logoUrl'),
         template: document.getElementById('template'),
@@ -23,6 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const copyHTMLButton = document.getElementById('copyHTMLButton');
     const copySuccess = document.getElementById('copySuccess');
     const stylingSection = document.getElementById('stylingSection');
+    const websiteDisplaySection = document.getElementById('websiteDisplaySection');
     const logoUrlGroup = document.getElementById('logoUrlGroup');
     const linkedinGroup = document.getElementById('linkedinGroup');
     const twitterGroup = document.getElementById('twitterGroup');
@@ -96,7 +98,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 ${data.email ? `<div class="contact-item"><strong>Email:</strong> <a href="mailto:${data.email}" style="color: #000; text-decoration: none;">${data.email}</a></div>` : ''}
                 ${(data.showLinkedin && data.linkedin) ? `<div class="contact-item"><strong>Linkedin:</strong> <a href="https://linkedin.com/in/${data.linkedin}" style="color: #000; text-decoration: none;">${data.linkedin}</a></div>` : ''}
                 ${(data.showTwitter && data.twitter) ? `<div class="contact-item"><strong>X:</strong> <a href="https://x.com/${data.twitter}" style="color: #000; text-decoration: none;">@${data.twitter}</a></div>` : ''}
-                ${(data.websiteUrl && data.websiteLabel) ? `<div class="website"><a href="${data.websiteUrl}" style="color: #000; text-decoration: none; font-weight: bold;">${data.websiteLabel}</a></div>` : ''}
+                ${data.websiteUrl ? `<div class="website"><a href="${data.websiteUrl}" style="color: #000; text-decoration: none; font-weight: bold;"><img src="static/icons/global-line.png" alt="Website" style="width: 16px; height: 16px; vertical-align: middle; margin-right: 5px;" />${data.websiteLabel || data.websiteUrl}</a></div>` : ''}
             </div>
         `,
         
@@ -107,18 +109,18 @@ document.addEventListener('DOMContentLoaded', function() {
                         ${data.fullName ? `<div class="name">${data.fullName}</div>` : ''}
                         ${data.jobTitle ? `<div class="title">${data.jobTitle}</div>` : ''}
                     </div>
-                    ${(data.showLinkedin && data.linkedin) || (data.showTwitter && data.twitter) ? `
-                        <div class="social-links">
-                            ${(data.showLinkedin && data.linkedin) ? `<a href="https://linkedin.com/in/${data.linkedin}" class="social-icon" style="text-decoration: none;"><img src="static/socials/Linkedin-Logo--Streamline-Logos-Block.png" alt="LinkedIn" /></a>` : ''}
-                            ${(data.showTwitter && data.twitter) ? `<a href="https://x.com/${data.twitter}" class="social-icon" style="text-decoration: none;"><img src="static/socials/X-Twitter-Logo--Streamline-Logos-Block.png" alt="X" /></a>` : ''}
-                        </div>
-                    ` : ''}
+                    <div class="social-links">
+                        ${(data.showLinkedin && data.linkedin) ? `<a href="https://linkedin.com/in/${data.linkedin}" class="social-icon" style="text-decoration: none;"><img src="static/socials/Linkedin-Logo--Streamline-Logos-Block.png" alt="LinkedIn" /></a>` : ''}
+                        ${(data.showTwitter && data.twitter) ? `<a href="https://x.com/${data.twitter}" class="social-icon" style="text-decoration: none;"><img src="static/socials/X-Twitter-Logo--Streamline-Logos-Block.png" alt="X" /></a>` : ''}
+                        ${(data.websiteUrl && data.websiteDisplay !== 'bottom') ? `<a href="${data.websiteUrl}" class="social-icon" style="text-decoration: none;"><img src="static/icons/global-line.png" alt="Website" /></a>` : ''}
+                    </div>
                 </div>
                 <div class="contact-info">
                     ${data.phone ? `<div class="contact-item"><strong>Mobile:</strong> ${data.phone}</div>` : ''}
                     ${data.email ? `<div class="contact-item"><strong>Email:</strong> <a href="mailto:${data.email}" style="color: #000; text-decoration: none;">${data.email}</a></div>` : ''}
                 </div>
                 ${data.company ? `<div class="company-logo">${generateLogo(data, data.company)}</div>` : ''}
+                ${(data.websiteUrl && data.websiteDisplay === 'bottom') ? `<div class="website"><a href="${data.websiteUrl}" style="color: #000; text-decoration: none; font-weight: bold;">${data.websiteLabel || data.websiteUrl}</a></div>` : ''}
             </div>
         `
     };
@@ -133,6 +135,7 @@ document.addEventListener('DOMContentLoaded', function() {
             phone: form.phone.value.trim(),
             websiteUrl: form.websiteUrl.value.trim(),
             websiteLabel: form.websiteLabel.value.trim(),
+            websiteDisplay: form.websiteDisplay.value,
             logoHyperlink: form.logoHyperlink.checked,
             logoUrl: form.logoUrl.value.trim(),
             template: form.template.value,
@@ -151,6 +154,13 @@ document.addEventListener('DOMContentLoaded', function() {
             stylingSection.style.display = 'block';
         } else {
             stylingSection.style.display = 'none';
+        }
+        
+        // Show website display option only for modern template
+        if (selectedTemplate === 'modern') {
+            websiteDisplaySection.style.display = 'block';
+        } else {
+            websiteDisplaySection.style.display = 'none';
         }
     }
 

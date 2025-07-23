@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gmail Signature Designer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Gmail Signature Designer</h1>
+            <p>Create professional email signatures for Gmail</p>
+        </header>
+
+        <div class="main-content">
+            <div class="editor-panel">
+                <h2>Design Your Signature</h2>
+                
+                <div class="config-section">
+                    <div class="config-header" onclick="toggleSection('personalInfo')">
+                        <h3>Personal Information</h3>
+                        <span class="toggle-icon">▼</span>
+                    </div>
+                    <div class="config-content" id="personalInfo">
+                        <div class="form-group">
+                            <label for="fullName">Full Name:</label>
+                            <input type="text" id="fullName" placeholder="John Doe">
+                        </div>
+                        <div class="form-group">
+                            <label for="jobTitle">Job Title:</label>
+                            <input type="text" id="jobTitle" placeholder="Software Engineer">
+                        </div>
+                        <div class="form-group">
+                            <label for="company">Company:</label>
+                            <input type="text" id="company" placeholder="Tech Corp">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" placeholder="john@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone:</label>
+                            <input type="tel" id="phone" placeholder="+1 (555) 123-4567">
+                        </div>
+                        <div class="form-group">
+                            <label for="websiteUrl">Website URL:</label>
+                            <input type="url" id="websiteUrl" placeholder="https://example.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="websiteLabel">Website Label:</label>
+                            <input type="text" id="websiteLabel" placeholder="www.example.com">
+                        </div>
+                        
+                        <div class="social-section">
+                            <h4>Social Networks</h4>
+                            <div class="social-item">
+                                <div class="form-group">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" id="showLinkedin" checked>
+                                        Show LinkedIn
+                                    </label>
+                                </div>
+                                <div class="form-group" id="linkedinGroup">
+                                    <label for="linkedin">LinkedIn Username:</label>
+                                    <input type="text" id="linkedin" placeholder="johndoe">
+                                </div>
+                            </div>
+                            <div class="social-item">
+                                <div class="form-group">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" id="showTwitter" checked>
+                                        Show X
+                                    </label>
+                                </div>
+                                <div class="form-group" id="twitterGroup">
+                                    <label for="twitter">X Username:</label>
+                                    <input type="text" id="twitter" placeholder="johndoe">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="config-section">
+                    <div class="config-header" onclick="toggleSection('styleConfig')" >
+                        <h3>Style</h3>
+                        <span class="toggle-icon">▼</span>
+                    </div>
+                    <div class="config-content" id="styleConfig">
+                        <div class="form-group">
+                            <label for="template">Template:</label>
+                            <select id="template">
+                                <option value="compact">Compact</option>
+                                <option value="balanced">Balanced</option>
+                                <option value="corporate">Corporate</option>
+                                <option value="modern" selected>Modern</option>
+                            </select>
+                        </div>
+                        <div class="form-group" id="stylingSection" style="display: none;">
+                            <label for="websiteAlignment">Website Alignment:</label>
+                            <select id="websiteAlignment">
+                                <option value="center">Center</option>
+                                <option value="left">Left</option>
+                                <option value="right">Right</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="logoHyperlink" checked>
+                                Make logo clickable
+                            </label>
+                        </div>
+                        <div class="form-group" id="logoUrlGroup">
+                            <label for="logoUrl">Logo URL:</label>
+                            <input type="url" id="logoUrl" placeholder="https://www.engini.io" value="https://www.engini.io">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="preview-panel">
+                <h2>Preview</h2>
+                <div class="preview-container">
+                    <div id="signaturePreview" class="signature-preview">
+                        <!-- Signature preview will be generated here -->
+                    </div>
+                </div>
+                
+                <div class="actions">
+                    <button id="copyButton" class="btn btn-primary">Copy Signature</button>
+                    <button id="copyHTMLButton" class="btn btn-secondary">Copy HTML Code</button>
+                    <div id="copySuccess" class="copy-success">Signature copied to clipboard!</div>
+                </div>
+
+                <div class="instructions">
+                    <h3>How to Add to Gmail:</h3>
+                    <ol>
+                        <li>Copy your signature above using the "Copy Signature" button</li>
+                        <li>Go to Gmail Settings (gear icon → "See all settings")</li>
+                        <li>Scroll to "Signature" section</li>
+                        <li>Click "Create new" and give it a name</li>
+                        <li>In the signature editor, paste using <strong>Ctrl+V</strong> (Windows) or <strong>Cmd+V</strong> (Mac)</li>
+                        <li>If formatting is lost, try pasting with <strong>Ctrl+Shift+V</strong> then reformat manually</li>
+                        <li>For images: You may need to re-upload images if they don't appear</li>
+                        <li>Save changes and select as default signature</li>
+                    </ol>
+                    <p><strong>Alternative methods:</strong></p>
+                    <ul>
+                        <li><strong>Manual Copy:</strong> Select the signature above and copy it with Ctrl+C/Cmd+C</li>
+                        <li><strong>HTML Code:</strong> Use "Copy HTML Code" button and paste into Gmail's HTML editor (Advanced)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

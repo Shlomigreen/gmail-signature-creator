@@ -28,7 +28,7 @@ export function CompactSignature({ data }: CompactSignatureProps) {
   };
 
   return (
-    <div className="signature-compact space-y-1 text-sm">
+    <div className="signature-compact space-y-1 text-sm w-fit inline-block">
       {data.fullName && (
         <div className="font-semibold text-gray-900">{data.fullName}</div>
       )}

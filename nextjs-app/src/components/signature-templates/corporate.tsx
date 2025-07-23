@@ -28,7 +28,7 @@ export function CorporateSignature({ data }: CorporateSignatureProps) {
   };
 
   return (
-    <div className="signature-corporate text-sm space-y-2">
+    <div className="signature-corporate text-sm space-y-2 w-fit inline-block">
       {data.company && (
         <div className="mb-3">
           {generateLogo(data.company)}

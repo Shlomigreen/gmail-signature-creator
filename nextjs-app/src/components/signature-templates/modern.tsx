@@ -28,9 +28,9 @@ export function ModernSignature({ data }: ModernSignatureProps) {
   };
 
   return (
-    <div className="signature-modern text-sm">
+    <div className="signature-modern text-sm w-fit inline-block">
       {/* Header Section */}
-      <div className="flex items-center justify-between gap-4 mb-3">
+      <div className="flex items-center gap-4 mb-3 min-w-fit">
         <div className="flex-1">
           {data.fullName && (
             <div className="font-semibold text-gray-900 text-lg">{data.fullName}</div>

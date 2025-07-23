@@ -28,8 +28,8 @@ export function BalancedSignature({ data }: BalancedSignatureProps) {
   };
 
   return (
-    <div className="signature-balanced text-sm">
-      <div className="flex items-start justify-between gap-4">
+    <div className="signature-balanced text-sm w-fit inline-block">
+      <div className="flex items-start gap-4 min-w-fit">
         <div className="flex-1 space-y-1">
           {data.fullName && (
             <div className="font-semibold text-gray-900">{data.fullName}</div>

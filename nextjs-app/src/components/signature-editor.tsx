@@ -22,17 +22,17 @@ const signatureSchema = z.object({
   company: z.string().min(1, 'Company is required'),
   email: z.string().email('Valid email is required'),
   phone: z.string().min(1, 'Phone number is required'),
-  websiteUrl: z.string().url('Valid URL is required').optional().or(z.literal('')),
-  websiteLabel: z.string().optional(),
+  websiteUrl: z.string(),
+  websiteLabel: z.string(),
   websiteDisplay: z.enum(['icon', 'bottom']).optional(),
   logoHyperlink: z.boolean(),
-  logoUrl: z.string().url('Valid URL is required').optional().or(z.literal('')),
+  logoUrl: z.string(),
   template: z.enum(['compact', 'balanced', 'corporate', 'modern']),
   websiteAlignment: z.enum(['center', 'left', 'right']).optional(),
   showLinkedin: z.boolean(),
-  linkedin: z.string().optional(),
+  linkedin: z.string(),
   showTwitter: z.boolean(),
-  twitter: z.string().optional(),
+  twitter: z.string(),
 });
 
 const templates = [
@@ -443,10 +443,10 @@ export function SignatureEditor() {
             </CardHeader>
             <CardContent className="prose prose-sm">
               <ol className="list-decimal list-inside space-y-2 text-sm">
-                <li>Copy your signature using the "Copy Signature" button above</li>
-                <li>Go to Gmail Settings (gear icon → "See all settings")</li>
-                <li>Scroll to "Signature" section</li>
-                <li>Click "Create new" and give it a name</li>
+                <li>Copy your signature using the &ldquo;Copy Signature&rdquo; button above</li>
+                <li>Go to Gmail Settings (gear icon → &ldquo;See all settings&rdquo;)</li>
+                <li>Scroll to &ldquo;Signature&rdquo; section</li>
+                <li>Click &ldquo;Create new&rdquo; and give it a name</li>
                 <li>In the signature editor, paste using <strong>Ctrl+V</strong> (Windows) or <strong>Cmd+V</strong> (Mac)</li>
                 <li>Save changes and select as default signature</li>
               </ol>

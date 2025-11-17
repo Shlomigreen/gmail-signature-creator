@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
         websiteUrl: document.getElementById('websiteUrl'),
         websiteLabel: document.getElementById('websiteLabel'),
         websiteDisplay: document.getElementById('websiteDisplay'),
+        logoDesign: document.getElementById('logoDesign'),
         logoHyperlink: document.getElementById('logoHyperlink'),
         logoUrl: document.getElementById('logoUrl'),
         template: document.getElementById('template'),
@@ -31,8 +32,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Helper function to generate logo HTML
     function generateLogo(data, altText) {
-        const logoImg = `<img src="static/logo/Black.png" alt="${altText}" />`;
-        
+        const logoFile = data.logoDesign || 'old.png';
+        const logoImg = `<img src="static/logo/${logoFile}" alt="${altText}" />`;
+
         if (data.logoHyperlink && data.logoUrl) {
             return `<a href="${data.logoUrl}" style="text-decoration: none;">${logoImg}</a>`;
         }
@@ -119,7 +121,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     ${data.phone ? `<div class="contact-item"><strong>Mobile:</strong> ${data.phone}</div>` : ''}
                     ${data.email ? `<div class="contact-item"><strong>Email:</strong> <a href="mailto:${data.email}" style="color: #000; text-decoration: none;">${data.email}</a></div>` : ''}
                 </div>
-                ${data.company ? `<div class="company-logo">${generateLogo(data, data.company).replace('<img', '<img style="height: auto; width: 150px;"')}</div>` : ''}
+                ${data.company ? `<div class="company-logo">${generateLogo(data, data.company).replace('<img', '<img style="height: 35px; width: auto;"')}</div>` : ''}
                 ${(data.websiteUrl && data.websiteDisplay === 'bottom') ? `<div class="website"><a href="${data.websiteUrl}" style="color: #000; text-decoration: none; font-weight: bold;">${data.websiteLabel || data.websiteUrl}</a></div>` : ''}
             </div>
         `
@@ -136,6 +138,7 @@ document.addEventListener('DOMContentLoaded', function() {
             websiteUrl: form.websiteUrl.value.trim(),
             websiteLabel: form.websiteLabel.value.trim(),
             websiteDisplay: form.websiteDisplay.value,
+            logoDesign: form.logoDesign.value,
             logoHyperlink: form.logoHyperlink.checked,
             logoUrl: form.logoUrl.value.trim(),
             template: form.template.value,
